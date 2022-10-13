@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Upload Video {% endblock %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data" class="main_upload_form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+    {% if uploaded %}
+        <h3>File Uploaded Successfully!</h3>
+    {% endif %}
+{% endblock %}

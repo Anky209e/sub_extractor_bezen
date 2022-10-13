@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="favicon" href="/favicon.ico">
+</head>
+<style>
+    /* Style the navigation bar */
+    .navbar {
+        width: 100%;
+        background-color: #44475a;
+        overflow: auto;
+    }
+
+    /* Navbar links */
+    .navbar a {
+        float: left;
+        text-align: center;
+        padding: 12px;
+        color: #8be9fd;
+        text-decoration: none;
+        font-size: 17px;
+        /* border-radius: 0px 50% 50% 0px; */
+    }
+
+    /* Navbar links on mouse-over */
+    .navbar a:hover {
+        background-color: #282a36;
+        color: #50fa7b;
+    }
+
+    /* Current/active navbar link */
+
+
+    /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+    @media screen and (max-width: 500px) {
+        .navbar a {
+            float: none;
+            display: block;
+        }
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Inter", sans-serif;
+        text-align: center;
+        background-color:#282a36;
+    }
+
+    .main_upload_form{
+        text-align: center;
+        width: 100%;
+        /* background-color: grey; */
+        margin-top: 10%;
+        
+    }
+    label{
+        color: #f8f8f2;
+    }
+
+    input[type=text],
+    select {
+        width: 40%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 50%;
+        background-color: #ff5555;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #bd93f9;
+    }
+
+    .submit-search{
+        background-color: #bd93f9;
+        padding: 0.7%;
+        border-radius: 20px;
+    }
+
+
+    input[type=file] {
+        width: 30%;
+        background-color: #50fa7b;
+        color: white;
+        padding: 20px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=file]:hover {
+        background-color: #ffb86c;
+    }
+    .video_title{
+        color: #50fa7b;
+    }
+    .video-link-container{
+        background-color: #44475a;
+        border-radius: 30px;
+        padding: 5%;
+        margin-top: 1%;
+        margin-left: 7%;
+        margin-right: 7%;
+
+
+    }
+    .headings{
+        color: #8be9fd;
+        padding: 0.7%;
+        /* background-color: #44475a; */
+    }
+    .sub-results{
+        background-color: #44475a;
+        color: #50fa7b;
+        text-align: center;
+        margin: 1%;
+    }
+</style>
+
+<body>
+    <div class="navbar">
+        <a class="active" href="/"><i class="fa fa-fw fa-film"></i> Home</a>
+        <!-- <a href="#"><i class="fa fa-fw fa-search"></i> Search</a> -->
+        <a href="/video/upload/"><i class="fa fa-fw fa-solid fa-upload"></i>Upload Video</a>
+        <a href="/admin"><i class="fa fa-fw fa-user"></i>Admin</a>
+    </div>
+    <br>
+    {% block content %}{% endblock %}
+
+</body>
+
+</html>

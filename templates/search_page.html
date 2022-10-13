@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %} Search {% endblock %}
+
+{% block content %}
+
+<h3 class="headings">Note: Search Query is Case Senstive</h3>
+{% for video in videos %}
+    <h1 class="video_title">Video: {{ video.name }}</h1>
+    <div class="search-container">
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="Search.." name="search">
+            <button class="submit-search">Search</button>
+        </form>
+    </div>
+ 
+    <video width="70%" height="70%" controls>
+        <source src="/media/{{ video.file }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+{% endfor %}
+
+{% if search_data %}
+    {% for results in search_data %}
+        <div class="sub-results">
+            <p>Start Time: {{ results.Start }}</p>
+            <p>End Time: {{ results.End }}</p>
+            <p>Subtitles: {{ results.Text }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <h3 class="headings">No,Results</h3>
+{% endif %}
+{% endblock %}
